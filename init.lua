@@ -31,20 +31,18 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
--- General fold settings
-vim.opt.foldenable = true -- enable folding
-vim.opt.foldlevel = 99 -- open all folds by default
-vim.opt.foldlevelstart = 99 -- start with all folds open
-vim.opt.foldnestmax = 3 -- limit nested folds
-vim.opt.foldminlines = 1 -- minimal lines to create a fold
-
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
 	callback = function()
 		require("neomood.autocmds").set()
 		require("neomood.mappings").set()
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "ruby",
+	callback = function()
+		vim.opt_local.foldmethod = "indent"
+		vim.opt_local.foldexpr = "0"
 	end,
 })
