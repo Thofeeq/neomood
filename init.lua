@@ -24,13 +24,13 @@ require("lazy").setup("plugins", {
 
 require("neomood.options").set()
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.conceallevel = 2
-	end,
-})
-
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "markdown",
+-- 	callback = function()
+-- 		vim.opt_local.conceallevel = 2
+-- 	end,
+-- })
+--
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
 	callback = function()
